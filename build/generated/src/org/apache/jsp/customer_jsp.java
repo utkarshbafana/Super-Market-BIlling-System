@@ -1,0 +1,255 @@
+package org.apache.jsp;
+
+import javax.servlet.*;
+import javax.servlet.http.*;
+import javax.servlet.jsp.*;
+import com.twilio.rest.api.v2010.account.Message;
+import com.twilio.type.PhoneNumber;
+import com.twilio.Twilio;
+import shoopingcart.CartItemBean;
+import shoopingcart.CartBean;
+import java.util.Date;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.Phrase;
+import com.itextpdf.text.Section;
+import com.itextpdf.text.Chapter;
+import com.itextpdf.text.Anchor;
+import com.itextpdf.text.Paragraph;
+import java.io.FileOutputStream;
+import com.itextpdf.text.pdf.PdfWriter;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Font;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.Connection;
+
+public final class customer_jsp extends org.apache.jasper.runtime.HttpJspBase
+    implements org.apache.jasper.runtime.JspSourceDependent {
+
+  private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
+
+  private static java.util.List<String> _jspx_dependants;
+
+  private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
+
+  public java.util.List<String> getDependants() {
+    return _jspx_dependants;
+  }
+
+  public void _jspService(HttpServletRequest request, HttpServletResponse response)
+        throws java.io.IOException, ServletException {
+
+    PageContext pageContext = null;
+    HttpSession session = null;
+    ServletContext application = null;
+    ServletConfig config = null;
+    JspWriter out = null;
+    Object page = this;
+    JspWriter _jspx_out = null;
+    PageContext _jspx_page_context = null;
+
+    try {
+      response.setContentType("text/html;charset=UTF-8");
+      pageContext = _jspxFactory.getPageContext(this, request, response,
+      			null, true, 8192, true);
+      _jspx_page_context = pageContext;
+      application = pageContext.getServletContext();
+      config = pageContext.getServletConfig();
+      session = pageContext.getSession();
+      out = pageContext.getOut();
+      _jspx_out = out;
+      _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
+
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write(" \n");
+      out.write("<!DOCTYPE html>\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write(" ");
+
+     
+     
+     
+     CartBean cb =new CartBean();
+     CartItemBean cib=new CartItemBean();
+     
+    
+      String FILE = "C:/Users/utkar/Desktop/FirstPdf.pdf";
+      Font catFont = new Font(Font.FontFamily.TIMES_ROMAN, 18,
+            Font.BOLD);
+     
+      Font subFont = new Font(Font.FontFamily.TIMES_ROMAN, 16,
+            Font.BOLD);
+      Font smallBold = new Font(Font.FontFamily.TIMES_ROMAN, 12,
+            Font.BOLD);
+
+       String p=request.getParameter("name");
+       String q=request.getParameter("num");
+       String r=request.getParameter("email");
+       String f=request.getParameter("ftotal");
+       
+       Class.forName("com.mysql.jdbc.Driver");
+       Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/smbs","root","1234");
+       PreparedStatement ps=con.prepareStatement("insert into sales values(?,?,?,?)");
+       
+       ps.setString(1, p);
+       ps.setString(2, q);
+       ps.setString(3, r);   
+        ps.setString(4, f);
+    int i =ps.executeUpdate();
+    if(i>0){
+        out.println("data inserted");
+        
+      Twilio.init("AC59627eb05c9665db59e9216781fe7789","44be4323f8f25bb33833a508cb176ce5");
+Message message = Message.creator(
+    new PhoneNumber("+919970445614"),
+    new PhoneNumber("+13342139136"),
+    "Sample Twilio SMS using Java")
+.create();
+   
+ Document document = new Document();
+            PdfWriter.getInstance(document, new FileOutputStream(FILE));
+            document.open();
+        document.addTitle("SUOERMARKET BILLING INVOICE");
+        document.addSubject("Using iText");
+        document.addKeywords("Java, PDF, iText");
+        document.addAuthor("UTKARSH BAFNA");
+        document.addCreator("Lars Vogel");
+        
+        Paragraph preface = new Paragraph();
+        // We add one empty line
+        // Lets write a big header
+        preface.add(new Paragraph("ORDER INVOICE", catFont));
+
+        // Will create: Report generated by: _name, _date
+        preface.add(new Paragraph(
+                "Report generated by: " + "UTKARSH BAFNA" + ", " + new Date(), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                smallBold));
+       
+
+        document.add(preface);
+        // Start a new page
+        document.newPage();
+       
+
+        
+        
+        PdfPTable table = new PdfPTable(2);
+        // t.setBorderColor(BaseColor.GRAY);
+        // t.setPadding(4);
+        // t.setSpacing(4);
+        // t.setBorderWidth(1);
+        
+       
+        PdfPCell custDetails = new PdfPCell(new Phrase("Customer Details"));
+        custDetails.setHorizontalAlignment(Element.ALIGN_CENTER);
+        table.addCell(custDetails);
+
+
+        custDetails = new PdfPCell(new Phrase("Bafna Enterprises"));
+        custDetails.setHorizontalAlignment(Element.ALIGN_CENTER);
+        table.addCell(custDetails);
+
+      
+        table.setHeaderRows(1);
+
+        table.addCell("Customer Name:");
+        table.addCell(p);
+        table.addCell("Mob No.");
+        table.addCell(q);
+        table.addCell("Email");
+        table.addCell(r);
+        table.addCell("Total");
+        table.addCell(f);
+        
+        document.add(table);
+       
+
+
+        PdfPTable carttable = new PdfPTable(5);
+        PdfPCell cartDetails = new PdfPCell(new Phrase("Product Details"));
+        cartDetails.setHorizontalAlignment(Element.ALIGN_CENTER);
+        carttable.addCell(cartDetails); 
+        
+        
+        cartDetails = new PdfPCell(new Phrase("Bafna Enterprises"));
+        cartDetails.setHorizontalAlignment(Element.ALIGN_CENTER);
+        carttable.addCell(cartDetails);
+        
+        cartDetails = new PdfPCell(new Phrase("Bafna Enterprises"));
+        cartDetails.setHorizontalAlignment(Element.ALIGN_CENTER);
+        carttable.addCell(cartDetails);
+        
+        cartDetails = new PdfPCell(new Phrase("Bafna Enterprises"));
+        cartDetails.setHorizontalAlignment(Element.ALIGN_CENTER);
+        carttable.addCell(cartDetails);
+        
+        cartDetails = new PdfPCell(new Phrase("Bafna Enterprises"));
+        cartDetails.setHorizontalAlignment(Element.ALIGN_CENTER);
+        carttable.addCell(cartDetails);
+        
+        carttable.setHeaderRows(1);
+
+        
+for(int j=0; j<cb.getLineItemCount();j++ )
+{
+   carttable.addCell(cib.getPartNumber());
+    carttable.addCell(cib.getModelDescription());
+     carttable.addCell(""+cib.getQuantity());
+      carttable.addCell(""+cib.getUnitCost());
+       carttable.addCell(""+cib.getTotalCost());
+        
+}
+        
+      
+        
+       document.add(carttable);
+        
+        document.close();
+
+        
+    }else{
+        out.println("not inserted");
+    }
+
+              
+  
+    } catch (Throwable t) {
+      if (!(t instanceof SkipPageException)){
+        out = _jspx_out;
+        if (out != null && out.getBufferSize() != 0)
+          out.clearBuffer();
+        if (_jspx_page_context != null) _jspx_page_context.handlePageException(t);
+        else throw new ServletException(t);
+      }
+    } finally {
+      _jspxFactory.releasePageContext(_jspx_page_context);
+    }
+  }
+}

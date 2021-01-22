@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/hnav.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+       
+        <div class="popover" id="menu">
+ <div class = 'content'>
+  <a href="" class="close"></a>
+   <div class = 'nav'>
+    <ul class = 'nav_list'>
+      
+    
+     <div class = 'nav_list_item'>
+		<li><a href="addprod.html">Add Product</a></li>
+      </div>
+    <div class = 'nav_list_item'>
+	  <li><a href="ModelList.jsp">Products</a></li>
+      </div>
+    <div class = 'nav_list_item'>
+	  <li><a href="ShoppingCart.jsp">Bill</a></li>
+      </div>
+     <div class = 'nav_list_item'>
+		<li><a href="statusup.html">Update</a></li>
+      </div>
+        <div class = 'nav_list_item'>
+	  <li><a href="salestable.jsp">Sales Table</a></li>
+      </div>
+        <div class = 'nav_list_item'>
+	  <li><a href="logout.jsp">Logout</a></li>
+      </div>
+	</ul>
+  </div>
+ </div>
+ </div>
+ 
+          <div class="main">
+
+        <!-- Sign up form -->
+        <section class="signup">
+            <div class="container">
+                <div class="signup-content">
+                    <div class="signup-form">
+                        <h2 class="form-title">Add Product</h2>
+       
+       
+                    <form method="post" action="addporduct" >
+            
+                           <div class="segment">
+  
+  </div>
+  
+  <div class="form-group">
+                                <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input type="text" name="pid" id="name" placeholder="Product Id"/>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input type="text" name="pname" id="name" placeholder=" Name"/>
+                            </div>
+                    
+                            <div class="form-group">
+                                <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input type="text" name="price" id="name" placeholder="Price"/>
+                            </div>
+                            <div class="form-group form-button">
+                                <input type="submit" name="Add Product" onclick="myAlertFunction()" class="form-submit" value="Add Product">
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <script>
+  function myAlertFunction() {
+  swal("Successful!", "Product Added Successfully", "success");
+}
+        
+    </script>
+                            </div>
+  
+  
+        </form>
+                    </div>
+               <div class="signup-image">
+                        <figure><img src="images/prod.jpg" alt="sing up image"></figure>
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+          </div>
+    </body>
+</html>

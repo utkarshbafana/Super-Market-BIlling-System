@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/hnav.css" rel="stylesheet" type="text/css"/>
+        
+         <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="css/style.css">
+        
+    </head>
+    <body>
+        <div class="popover" id="menu">
+ <div class = 'content'>
+  <a href="" class="close"></a>
+   <div class = 'nav'>
+    <ul class = 'nav_list'>
+      
+     
+     <div class = 'nav_list_item'>
+		<li><a href="addprod.html">Add Product</a></li>
+      </div>
+    <div class = 'nav_list_item'>
+	  <li><a href="ModelList.jsp">Products</a></li>
+      </div>
+    <div class = 'nav_list_item'>
+	  <li><a href="ShoppingCart.jsp">Bill</a></li>
+      </div>
+     <div class = 'nav_list_item'>
+		<li><a href="statusup.html">Update</a></li>
+      </div>
+       <div class = 'nav_list_item'>
+	  <li><a href="salestable.jsp">sales table</a></li>
+      </div>
+        <div class = 'nav_list_item'>
+	  <li><a href="logout.jsp">Logout</a></li>
+      </div>
+	</ul>
+  </div>
+ </div>
+ </div>
+         <section class="sign-in">
+            <div class="container">
+                <div class="signin-content">
+                    <div class="signin-image">
+                        <figure><img src="images/pay.jpg" alt="sing up image"></figure>
+                        <a href="salestable.jsp" class="signup-image-link">Check Status</a>
+                    </div>
+
+                    <div class="signin-form">
+                        <h2 class="form-title">Update Payement Status</h2>
+        
+        <form method="post" action="update" id="remove_book" >
+             <div class="form-group">
+                                <label for="your_name"></label>
+                                <input type="text" name="cid" id="your_name" placeholder="Customer Id"/>
+                            </div>
+            <div class="select">
+                
+             <select name="status" id="cars">
+                  <option selected disabled>Choose an option</option>
+    <option value="Paid">Paid</option>
+    <option value="pending">Pending</option>
+    
+     </select>
+              
+            </div>
+            
+             <div class="form-group form-button">
+                                <input type="submit" name="signin" onclick="myAlertFunction()" id="signin" class="form-submit" value="Update"/>
+                            </div> 
+            <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+            <script>
+  function myAlertFunction() {
+   swal("Payment Status Updated", "Data Updated!", "success");
+}
+        
+    </script>
+        </form>
+                        
+                    </div>
+                </div>
+            </div>
+         </section>
+          
+    
+    </body>
+ 
+</html>

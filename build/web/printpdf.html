@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+         <h1>Thank you !!!</h1>
+ <input type="button" id="bt" 
+        onclick="print('FirstPdf.pdf')" 
+            value="Print PDF" />
+         <a href="FirstPdf.pdf" style="margin-top: 10px;">Download Template</a>
+
+  <script>
+      
+  let print = (doc) => {
+    	let objFra = document.createElement('iframe');     // Create an IFrame.
+        objFra.style.visibility = 'hidden';                // Hide the frame.
+        objFra.src = doc;                   // Set source.
+
+        document.body.appendChild(objFra);  // Add the frame to the web page.
+
+        objFra.contentWindow.focus();       // Set focus.
+        objFra.contentWindow.print();       // Print it.
+    }
+      
+  </script>
+    </body>
+</html>
